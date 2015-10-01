@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>{%=o.htmlWebpackPlugin.options.title || 'CGI SHE Web Application'%}</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% if (o.htmlWebpackPlugin.files.favicon) { %}
+    <link rel="shortcut icon" href="{%=o.htmlWebpackPlugin.files.favicon%}">
+    {% } %}
+    <!--[if lt IE 9]>
+      <script src="http://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7/html5shiv.js"></script>
+    <![endif]-->
+    {% for (var css in o.htmlWebpackPlugin.files.css) { %}
+    <link href="{%=o.htmlWebpackPlugin.files.css[css] %}" rel="stylesheet">
+    {% } %}
+    <!-- We can support web fonts also -->
+    <!-- <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'> -->
+  </head>
+  <body>
+    <div id="app">
+      <h1 class="blue">It Works -- Check the console</h1>
+    </div>
+    {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
+    <script type="text/javascript" src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry%}"></script>
+    {% } %}
+  </body>
+</html>
