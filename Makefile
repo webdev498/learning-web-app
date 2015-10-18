@@ -1,20 +1,24 @@
 BIN = ./node_modules/.bin
 
-install-dev-deps:
-	@echo "Installing development dependencies..."
-	@npm install --dev
-
 install-deps:
-	@echo "Installing production dependencies..."
+	@echo "Installing dependencies..."
 	@npm install
 
-build: install-deps
+build: install-deps clean
 	@echo "Building application artifacts..."
 	@$(BIN)/webpack --progress
 
-dev-server:
-	@echo "Starting development server.."
-	@./server
+test: install-deps
+	@echo "Running tests..."
+	@$(BIN)/karma start
+
+clean:
+	@echo "Removing application artifacts..."
+	@NODE_ENV=test rm -rf ./dist
+
+ clean-deps:
+	@echo "Deleting dependencies..."
+	@rm -rf ./node_modules
 
 
-.PHONY: install-dev-deps install-deps build
+.PHONY: install-dev-deps install-deps build test clean
