@@ -27,11 +27,7 @@ module.exports = {
     loaders: [
       {
          test: /\.less$/,
-         loader: ExtractTextPlugin.extract(
-           // activate source maps via loader query
-           'css?sourceMap!' +
-           'less?sourceMap'
-         )
+         loader: ExtractTextPlugin.extract('css?sourceMap!less?sourceMap')
       }
     ]
   },
