@@ -13,6 +13,7 @@ module.exports = {
     chunkFilename: "[id].js",
     path: path.join(__dirname, 'dist')
   },
+  devtool: 'source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin("[name].css"),
