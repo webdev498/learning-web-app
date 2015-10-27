@@ -12,7 +12,7 @@ CGI Web Application is the User Interface application for Common Gateway Interna
 
 ## Installation
 
-    $ make install
+    $ make install-deps
 
 ## Running Locally
 
