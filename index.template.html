@@ -16,9 +16,9 @@
     <!-- We can support web fonts also -->
     <!-- <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'> -->
   </head>
-  <body ng-app="cgiSheApp">
+  <body ng-app="cgiSheApp" ng-controller="MainController">
     <div id="app">
-      <h1 class="blue">CGI Baby!</h1>
+      <h1 class="blue">CGI Baby Doll</h1>
     </div>
     {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
     <script type="text/javascript" src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry%}"></script>
