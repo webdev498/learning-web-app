@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="cgiSheApp">
   <head>
     <title>{%=o.htmlWebpackPlugin.options.title || 'CGI SHE Web Application'%}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <base href="/">
     {% if (o.htmlWebpackPlugin.files.favicon) { %}
     <link rel="shortcut icon" href="{%=o.htmlWebpackPlugin.files.favicon%}">
     {% } %}
@@ -15,13 +16,16 @@
     {% } %}
     <!-- We can support web fonts also -->
     <!-- <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'> -->
+    
   </head>
-  <body ng-app="cgiSheApp">
-    <div id="app">
-      <h1 class="blue">CGI Baby!</h1>
+  <body>
+    <div class="container">
+      <ui-view></ui-view>
     </div>
+    
     {% for (var chunk in o.htmlWebpackPlugin.files.chunks) { %}
     <script type="text/javascript" src="{%=o.htmlWebpackPlugin.files.chunks[chunk].entry%}"></script>
     {% } %}
+    
   </body>
 </html>

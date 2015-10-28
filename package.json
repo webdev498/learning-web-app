@@ -15,10 +15,14 @@
   "homepage": "https://bitbucket.org/josh_king_/cgi-she-web-app#readme",
   "dependencies": {
     "angular": "1.4.7",
-    "angular-ui-router": "*",
+    "angular-ui-router": "^0.2.15",
     "babel": "^5.8.23",
     "babel-core": "^5.8.25",
     "babel-loader": "^5.3.2",
+    "babel-runtime": "^5.8.29",
+    "bootstrap": "^3.3.5",
+    "html-loader": "^0.3.0",
+    "jquery": "^2.1.4",
     "moment": "^2.10.6",
     "webpack": "^1.12.2"
   },

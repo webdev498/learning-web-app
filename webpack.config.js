@@ -13,6 +13,7 @@ module.exports = {
     chunkFilename: "[id].js",
     path: path.join(__dirname, 'dist')
   },
+  devtool: 'source-map',
   plugins: [
     new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin("[name].css"),
@@ -25,6 +26,16 @@ module.exports = {
   ],
   module: {
     loaders: [
+      { test: /\.html$/, loader: "html" },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel'
+      },
+      {
+        test: /\.jsx$/,
+        loader: 'babel'
+      },
       {
          test: /\.less$/,
          loader: ExtractTextPlugin.extract('css?sourceMap!less?sourceMap')
