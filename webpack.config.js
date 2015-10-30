@@ -26,7 +26,6 @@ module.exports = {
   ],
   module: {
     loaders: [
-      { test: /\.html$/, loader: "html" },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -39,7 +38,8 @@ module.exports = {
       {
          test: /\.less$/,
          loader: ExtractTextPlugin.extract('css?sourceMap!less?sourceMap')
-      }
+      },
+      { test: /\.html$/, loader: "html" }
     ]
   },
   resolve: {
