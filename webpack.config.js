@@ -18,7 +18,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin("[name].css"),
     new HtmlWebpackPlugin({
-      title: 'Fresh Food Connect',
+      title: 'Spanish Healthcare Exam Admin Portal',
       filename: 'index.html',
       template: 'index.template.html',
       favicon: path.join(__dirname, 'assets', 'images', 'favicon.ico')

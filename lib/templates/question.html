@@ -1,0 +1,48 @@
+<div style="margin-top: 10px">
+	<select ng-change="q.typeChanged()" ng-model="q.selectedType">
+		<option value="1">Multiple Choice</option>
+	</select>	
+</div>
+
+<div style="display: inline-block; height: 400px; overflow-auto; width: 150px; 
+		vertical-align: top; background-color: whitesmoke; margin-top: 10px">
+	<div ng-repeat="qt in q.questions"></div>
+</div>	
+
+<div style="display: inline-block; vertical-align: top; margin-left: 10px">
+	<div class="rowContainer">
+		<div class="leftLabel">Title*</div>
+		<div class="rightContent">
+			<input type="text" ng-model="q.selected.title" />
+		</div>
+		<div class="tip" title="The title of the question, used for internal purposes"></div>
+	</div>
+	<div class="rowContainer">
+		<div class="leftLabel algTop">Instructions</div>
+		<div class="rightContent">
+			<textarea class="qtArea" ng-model="q.selected.instructions"></textarea>
+		</div>
+		<div class="tip" title="Special instructions on the question that will be displayed in smaller italic font for the student"></div>
+	</div>
+	<div class="rowContainer">
+		<div class="leftLabel algTop">Admin Comments</div>
+		<div class="rightContent">
+			<textarea class="qtArea" ng-model="q.selected.adminComments"></textarea>
+		</div>
+		<div class="tip" title="Notes, information about the question for internal use"></div>
+	</div>
+	<div class="rowContainer">
+		<div class="leftLabel algTop">Question*</div>
+		<div class="rightContent">
+			<textarea class="qtArea" ng-model="q.selected.question"></textarea>
+		</div>
+		<div class="tip" title="The question the student will read"></div>
+	</div>
+	<div class="rowContainer">
+		<div class="leftLabel algTop">Answers*</div>
+		<div class="rightContent">
+			
+		</div>
+		<div class="tip" title="The answers for the question"></div>
+	</div>
+</div>
