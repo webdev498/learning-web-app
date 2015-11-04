@@ -41,8 +41,41 @@
 	<div class="rowContainer">
 		<div class="leftLabel algTop">Answers*</div>
 		<div class="rightContent">
-			
+			<div>
+				<button class="btn btn-small btn-default"
+				ng-click="q.addAnswer()">+ Add Question</button>
+			</div>	
+			<table>
+				<thead>
+					<tr>
+						<th>Answer</th>
+						<th>Correct</th>
+						<th>Action</th>
+					</tr>	
+				</thead>
+				<tbody>	
+					<tr ng-repeat="answer in q.selected.question.answers">
+						<td>
+							<textarea ng-model="answer.answer" class="answerArea"></textarea>
+						</td>
+						<td>
+							<input type="checkbox" ng-model="" ng-click="q.correctClicked($index)" />
+						</td>	
+						<td>
+							<button class="btn btn-sm btn-info" 
+							ng-click="q.removeAnswer($index)">Remove</button>
+						</td>	
+					</tr>	
+				</tbody>	
+			</table>		
 		</div>
 		<div class="tip" title="The answers for the question"></div>
+	</div>
+	<div class="rowContainer">
+		<div class="leftLabel algTop"></div>
+		<div class="rightContent">
+			<button class="btn btn-sm btn-primary" ng-click="q.saveQuestion()">Save</button>
+		</div>
+		
 	</div>
 </div>
