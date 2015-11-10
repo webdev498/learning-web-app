@@ -1,12 +1,12 @@
 <div style="margin-top: 10px">
 	<select ng-change="q.typeChanged()" ng-model="q.selectedType">
-		<option value="1">Multiple Choice</option>
+		<option value="multipleChoice">Multiple Choice</option>
 	</select>	
 </div>
 
 <div style="display: inline-block; height: 400px; overflow-auto; width: 150px; 
 		vertical-align: top; background-color: whitesmoke; margin-top: 10px">
-	<div class="addQuestion" ng-click="q.addQuestion()">+ New Question</div>
+	<div class="addQuestion" ng-click="q.addQuestion()">New Question</div>
 	<div ng-repeat="qt in q.questions"></div>
 </div>	
 
@@ -43,7 +43,7 @@
 		<div class="leftLabel algTop">Answers*</div>
 		<div class="rightContent">
 			<div>
-				<div class="addQuestion" ng-click="q.addAnswer()">+ Add Answer</div>
+				<div class="addQuestion" ng-click="q.addAnswer()">Add Answer</div>
 			</div>	
 			<table class="standardTable">
 				<thead>
@@ -54,14 +54,14 @@
 					</tr>	
 				</thead>
 				<tbody>	
-					<tr ng-repeat="answer in q.selected.question.answers">
+					<tr ng-repeat="answer in q.question.answers">
 						<td>
 							<textarea ng-model="answer.answer" class="answerArea"></textarea>
 						</td>
-						<td>
-							<input type="checkbox" ng-model="" ng-click="q.correctClicked($index)" />
+						<td style="algTop center">
+							<input type="checkbox" ng-model="answer.correct" ng-click="q.correctClicked($index)" />
 						</td>	
-						<td>
+						<td class="algTop">
 							<button class="btn btn-sm btn-info" 
 							ng-click="q.removeAnswer($index)">Remove</button>
 						</td>	
@@ -74,7 +74,9 @@
 	<div class="rowContainer">
 		<div class="leftLabel algTop"></div>
 		<div class="rightContent">
-			<button class="btn btn-sm btn-primary" ng-click="q.saveQuestion()">Save</button>
+			<button class="btn btn-sm btn-primary" 
+			ng-disabled="q.saveDisabled()"
+			ng-click="q.saveQuestion()">Save</button>
 		</div>
 		
 	</div>

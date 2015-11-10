@@ -39,7 +39,8 @@ module.exports = {
          test: /\.less$/,
          loader: ExtractTextPlugin.extract('css?sourceMap!less?sourceMap')
       },
-      { test: /\.html$/, loader: "html" }
+      { test: /\.html$/, loader: "html" },
+      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'}
     ]
   },
   resolve: {
