@@ -7,7 +7,9 @@
 <div style="display: inline-block; height: 400px; overflow-auto; width: 150px; 
 		vertical-align: top; background-color: whitesmoke; margin-top: 10px">
 	<div class="addQuestion" ng-click="q.addQuestion()">New Question</div>
-	<div ng-repeat="qt in q.questions"></div>
+	<div ng-repeat="qt in q.questions">
+		<div ng-click="q.questionSelect($index)">{{qt.title}}</div>
+	</div>
 </div>	
 
 <div style="display: inline-block; vertical-align: top; margin-left: 10px" ng-show="q.isEditing">
