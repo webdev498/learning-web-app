@@ -8,7 +8,9 @@
 		vertical-align: top; background-color: whitesmoke; margin-top: 10px">
 	<div class="addQuestion" ng-click="q.addQuestion()">New Question</div>
 	<div ng-repeat="qt in q.questions">
-		<div ng-click="q.questionSelect($index)">{{qt.title}}</div>
+		<p style="width: 150px">
+			<span ng-click="q.questionSelect($index)">{{qt.title}}</span>
+		</p>
 	</div>
 </div>	
 
