@@ -1,0 +1,21 @@
+<div style="width: 250px">
+	<div style="padding: 5px; background-color: #eaeaea; margin-bottom: 5px" ng-if="prototype == true">
+		Your format for: {{questiontitle}} : {{questiontype}}
+	</div>
+	<div>
+		<p>{{question.question}}</p>
+	</div>	
+	<div ng-if="question.instructions.length > 0" style="margin-top: 3px; margin-bottom: 3px">
+		<em>{{question.instructions}}</em>
+	</div>
+	<div style="display: table">
+		<div style="display: table-row" ng-repeat="eq in question.answers">
+			<div style="display: table-cell">
+				<input type="radio" name="question.questionId" />
+			</div>	
+			<div style="display: table-cell; margin-left: 4px">
+				<span>{{eq.answer}}</span>
+			</div>	
+		</div>	
+	</div>	
+</div>

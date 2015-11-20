@@ -16,35 +16,35 @@
 	<div class="rowContainer">
 		<div class="leftLabel">Title*</div>
 		<div class="rightContent">
-			<input type="text" ng-model="q.selected.title" />
+			<input type="text" ng-model="q.question.title" />
 		</div>
 		<div class="tip" title="The title of the question, used for internal purposes"></div>
 	</div>
 	<div class="rowContainer">
 		<div class="leftLabel algTop">Instructions</div>
 		<div class="rightContent">
-			<textarea class="qtArea" ng-model="q.selected.instructions"></textarea>
+			<textarea class="qtArea" ng-model="q.question.instructions"></textarea>
 		</div>
 		<div class="tip" title="Special instructions on the question that will be displayed in smaller italic font for the student"></div>
 	</div>
 	<div class="rowContainer">
 		<div class="leftLabel algTop">Admin Comments</div>
 		<div class="rightContent">
-			<textarea class="qtArea" ng-model="q.selected.adminComments"></textarea>
+			<textarea class="qtArea" ng-model="q.question.adminComments"></textarea>
 		</div>
 		<div class="tip" title="Notes, information about the question for internal use"></div>
 	</div>
 	<div class="rowContainer">
 		<div class="leftLabel algTop">Question*</div>
 		<div class="rightContent">
-			<textarea class="qtArea" ng-model="q.selected.question"></textarea>
+			<textarea class="qtArea" ng-model="q.question.question"></textarea>
 		</div>
 		<div class="tip" title="The question the student will read"></div>
 	</div>
 		<div class="rowContainer">
 		<div class="leftLabel algTop">Phase*</div>
 		<div class="rightContent">
-			<select ng-model="q.selected.phase">
+			<select ng-model="q.question.phase">
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
@@ -71,7 +71,7 @@
 						<td>
 							<textarea ng-model="answer.answer" class="answerArea"></textarea>
 						</td>
-						<td style="algTop center">
+						<td class="algTop center">
 							<input type="checkbox" ng-model="answer.correct" ng-click="q.correctClicked($index)" />
 						</td>	
 						<td class="algTop">
@@ -93,4 +93,10 @@
 		</div>
 		
 	</div>
+</div>
+
+
+<div style="display: inline-block; vertical-align: top; margin-left: 20px" ng-show="q.isEditing">
+	<question questiontype="q.selectedType" questiontitle="q.question.title" 
+		prototype="true" question="q.question"></question>	
 </div>
