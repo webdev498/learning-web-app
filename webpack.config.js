@@ -18,7 +18,7 @@ module.exports = {
     new webpack.HotModuleReplacementPlugin(),
     new ExtractTextPlugin("[name].css"),
     new HtmlWebpackPlugin({
-      title: 'Fresh Food Connect',
+      title: 'Spanish Healthcare Exam Admin Portal',
       filename: 'index.html',
       template: 'index.template.html',
       favicon: path.join(__dirname, 'assets', 'images', 'favicon.ico')
@@ -26,7 +26,6 @@ module.exports = {
   ],
   module: {
     loaders: [
-      { test: /\.html$/, loader: "html" },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -39,7 +38,9 @@ module.exports = {
       {
          test: /\.less$/,
          loader: ExtractTextPlugin.extract('css?sourceMap!less?sourceMap')
-      }
+      },
+      { test: /\.html$/, loader: "html" },
+      { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'}
     ]
   },
   resolve: {
