@@ -1,3 +1,5 @@
+<div ng-init="q.init()"></div>
+
 <div style="margin-top: 10px">
 	<select ng-change="q.typeChanged()" ng-model="q.selectedType">
 		<option value="multipleChoice">Multiple Choice</option>
@@ -7,9 +9,13 @@
 <div style="display: inline-block; height: 400px; overflow-auto; width: 150px; 
 		vertical-align: top; background-color: whitesmoke; margin-top: 10px">
 	<div class="addQuestion" ng-click="q.addQuestion()">New Question</div>
-	<div ng-repeat="qt in q.questions">
+	
+	<div style="margin: 5px" ng-show="q.questionsLoading">
+		<i class="fa fa-refresh fa-spin"></i>
+	</div>	
+	<div ng-repeat="qt in q.questions" style="margin-top: 5px">
 		<p style="width: 150px">
-			<span ng-click="q.questionSelect($index)">{{qt.title}}</span>
+			<span class="questionSelect" ng-click="q.questionSelect($index)">{{qt.title}}</span>
 		</p>
 	</div>
 </div>	
@@ -39,7 +45,7 @@
 	<div class="rowContainer">
 		<div class="leftLabel algTop">Question*</div>
 		<div class="rightContent">
-			<textarea class="qtArea" ng-model="q.question.question"></textarea>
+			<textarea class="qtArea" ng-model="q.question.text"></textarea>
 		</div>
 		<div class="tip" title="The question the student will read"></div>
 	</div>
@@ -69,7 +75,7 @@
 					</tr>	
 				</thead>
 				<tbody>	
-					<tr ng-repeat="answer in q.question.answers">
+					<tr ng-repeat="answer in q.question.choices">
 						<td>
 							<textarea ng-model="answer.answer" class="answerArea"></textarea>
 						</td>
@@ -84,14 +90,19 @@
 				</tbody>	
 			</table>		
 		</div>
-		<div class="tip" title="The answers for the question"></div>
+		<div class="tip" title="The choices for the question"></div>
 	</div>
 	<div class="rowContainer">
 		<div class="leftLabel algTop"></div>
-		<div class="rightContent">
+		<div class="rightContent" style="margin-top: 8px">
 			<button class="btn btn-sm btn-primary" 
 			ng-disabled="q.saveDisabled()"
-			ng-click="q.saveQuestion()">Save</button>
+			ng-click="q.saveQuestion()">Save Question</button>
+			
+			<button class="btn btn-sm btn-default"
+			style="margin-left: 6px" 
+			ng-show="q.question.version != null"
+			ng-click="q.deleteQuestion()">Delete</button>
 		</div>
 		
 	</div>
