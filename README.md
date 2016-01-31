@@ -1,4 +1,4 @@
-# Common Gateway International
+# Common Ground International
 # Spanish Healthcare Language Web Application
 
 
