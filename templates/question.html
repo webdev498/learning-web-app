@@ -30,6 +30,24 @@
 		<div class="tip" title="The title of the question, used for internal purposes"></div>
 	</div>
 	<div class="rowContainer">
+		<div class="leftLabel algTop">Phase*</div>
+		<div class="rightContent">
+			<select ng-model="q.question.phase">
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+			</select>
+		</div>
+		<div class="tip" title="The phase of questioning when the question can appear in an exam"></div>
+	</div>
+	<div class="rowContainer">
+		<div class="leftLabel algTop">Question*</div>
+		<div class="rightContent">
+			<textarea class="qtArea" ng-model="q.question.text"></textarea>
+		</div>
+		<div class="tip" title="The question the student will read"></div>
+	</div>
+		<div class="rowContainer">
 		<div class="leftLabel algTop">Instructions</div>
 		<div class="rightContent">
 			<textarea class="qtArea" ng-model="q.question.instructions"></textarea>
@@ -42,24 +60,6 @@
 			<textarea class="qtArea" ng-model="q.question.adminComments"></textarea>
 		</div>
 		<div class="tip" title="Notes, information about the question for internal use"></div>
-	</div>
-	<div class="rowContainer">
-		<div class="leftLabel algTop">Question*</div>
-		<div class="rightContent">
-			<textarea class="qtArea" ng-model="q.question.text"></textarea>
-		</div>
-		<div class="tip" title="The question the student will read"></div>
-	</div>
-		<div class="rowContainer">
-		<div class="leftLabel algTop">Phase*</div>
-		<div class="rightContent">
-			<select ng-model="q.question.phase">
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-			</select>
-		</div>
-		<div class="tip" title="The phase of questioning when the question can appear in an exam"></div>
 	</div>
 	<div class="rowContainer">
 		<div class="leftLabel algTop">Answers*</div>
