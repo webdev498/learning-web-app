@@ -1,0 +1,52 @@
+<div ng-init="cg.init()"></div>
+
+<div style="display: inline-block; height: 400px; overflow-auto; width: 150px; 
+		vertical-align: top; background-color: whitesmoke; margin-top: 10px">
+	<button class="btn btn-small btn-info" ng-click="cg.createCategory()"
+		 style="margin-top: 5px; margin-left: 3px">New Category</button>
+	
+	<div style="margin: 5px" ng-show="cg.categoriesLoading">
+		<i class="fa fa-refresh fa-spin"></i>
+	</div>	
+	<div ng-repeat="cat in cg.categories" style="margin-top: 5px">
+		<p style="width: 150px">
+			<span class="questionSelect" ng-click="cg.selectedCategory = cat">{{cg.name}}</span>
+		</p>
+	</div>
+</div>	
+
+<div style="display: inline-block; vertical-align: top; margin-left: 10px" ng-show="cg.selectedCategory != null">
+    <div class="rowContainer">
+		<div class="leftLabel algTop">Name*</div>
+		<div class="rightContent">
+			<input type="text" class="form-control" ng-model="cg.selectedCateogory.name" />
+		</div>
+		<div class="tip" title="The name of the category"></div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">Active</div>
+		<div class="rightContent">
+			<input type="checkbox" class="form-control" ng-model="cg.selectedCateogory.active" />
+		</div>
+		<div class="tip" title="Whether or not the category is active for assigning to questions"></div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">Parent</div>
+		<div class="rightContent">
+			<select class="form-control" 
+                    ng-model="cg.selectedCateogory.parent.id"
+                    ng-options="cat.id as cat.name for cat in cg.categories">
+                    <option value=""></option>       
+			</select>    
+		</div>
+		<div class="tip" title="The upper level parent of the category.  Not required"></div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop"></div>
+		<div class="rightContent" style="margin-top: 8px">
+			<button class="btn btn-sm btn-primary" 
+			ng-disabled="cg.saveDisabled()"
+			ng-click="cg.saveCategory()">Save</button>
+		</div>		
+	</div>
+</div>
