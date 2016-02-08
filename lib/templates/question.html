@@ -2,6 +2,8 @@
 
 <div style="margin-top: 10px">
 	<select ng-change="q.typeChanged()" ng-model="q.selectedType">
+        <option value="grouping">Grouping</option>
+        <option value="matching">Matching</option>
 		<option value="multipleChoice">Multiple Choice</option>
 	</select>	
 </div>
@@ -16,23 +18,16 @@
 	</div>	
 	<div ng-repeat="qt in q.questions" style="margin-top: 5px">
 		<p style="width: 150px">
-			<span class="questionSelect" ng-click="q.questionSelect($index)">{{qt.title}}</span>
+			<span class="questionSelect" ng-click="q.questionSelect($index)">{{qt.answer}}</span>
 		</p>
 	</div>
 </div>	
 
 <div style="display: inline-block; vertical-align: top; margin-left: 10px" ng-show="q.isEditing">
 	<div class="rowContainer">
-		<div class="leftLabel">Title*</div>
-		<div class="rightContent">
-			<input type="text" ng-model="q.question.title" />
-		</div>
-		<div class="tip" title="The title of the question, used for internal purposes"></div>
-	</div>
-	<div class="rowContainer">
 		<div class="leftLabel algTop">Phase*</div>
 		<div class="rightContent">
-			<select ng-model="q.question.phase">
+			<select ng-model="q.question.phase" class="form-control">
 				<option value="1">1</option>
 				<option value="2">2</option>
 				<option value="3">3</option>
@@ -43,55 +38,23 @@
 	<div class="rowContainer">
 		<div class="leftLabel algTop">Question*</div>
 		<div class="rightContent">
-			<textarea class="qtArea" ng-model="q.question.text"></textarea>
+			<textarea class="qtArea form-control" ng-model="q.question.text"></textarea>
 		</div>
 		<div class="tip" title="The question the student will read"></div>
 	</div>
-		<div class="rowContainer">
-		<div class="leftLabel algTop">Instructions</div>
-		<div class="rightContent">
-			<textarea class="qtArea" ng-model="q.question.instructions"></textarea>
-		</div>
-		<div class="tip" title="Special instructions on the question that will be displayed in smaller italic font for the student"></div>
-	</div>
 	<div class="rowContainer">
-		<div class="leftLabel algTop">Admin Comments</div>
+		<div class="leftLabel algTop">Answer*</div>
 		<div class="rightContent">
-			<textarea class="qtArea" ng-model="q.question.adminComments"></textarea>
+			<input type="text" class="form-control" ng-model="q.question.answer" />
 		</div>
-		<div class="tip" title="Notes, information about the question for internal use"></div>
+		<div class="tip" title="The answer to the question"></div>
 	</div>
-	<div class="rowContainer">
-		<div class="leftLabel algTop">Answers*</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">Active</div>
 		<div class="rightContent">
-			<div style="margin: 5px">
-				<button class="btn btn-small btn-info" ng-click="q.addAnswer()">Add Answer</button>
-			</div>	
-			<table class="standardTable">
-				<thead>
-					<tr>
-						<th>Answer</th>
-						<th>Correct</th>
-						<th>Action</th>
-					</tr>	
-				</thead>
-				<tbody>	
-					<tr ng-repeat="answer in q.question.choices">
-						<td>
-							<textarea ng-model="answer.text" class="answerArea"></textarea>
-						</td>
-						<td class="algTop center">
-							<input type="checkbox" ng-model="answer.correct" ng-click="q.correctClicked($index)" />
-						</td>	
-						<td class="algTop">
-							<button class="btn btn-sm btn-info" 
-							ng-click="q.removeAnswer($index)">Remove</button>
-						</td>	
-					</tr>	
-				</tbody>	
-			</table>		
+			<input type="checkbox" ng-model="question.active" class="form-control" />
 		</div>
-		<div class="tip" title="The choices for the question"></div>
+		<div class="tip" title="The answer to the question"></div>
 	</div>
 	<div class="rowContainer">
 		<div class="leftLabel algTop"></div>
