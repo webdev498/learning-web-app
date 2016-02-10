@@ -1,10 +1,15 @@
-<div class="stat-row" style="margin-top: 10px">
+<div ng-init="m.init()"></div>
+
+<fieldset style="margin-top: 20px">
+    <legend>Phase 1 Exam Stats</legend>
+
+<div class="stat-row">
     <div class="stat-title">
     Exams this Week:
     </div>
 
     <div class="stat-data">
-        <span ng-bind="">
+        <span ng-bind=""></span>
     </div>
 </div>
 
@@ -14,7 +19,7 @@
     </div>
 
     <div class="stat-data">
-        <span ng-bind="">
+        <span ng-bind=""></span>
     </div>
 </div>
 
@@ -24,6 +29,42 @@
     </div>
 
     <div class="stat-data">
-        <span ng-bind="">
+        <span ng-bind=""></span>
     </div>
 </div>
+
+<hr />
+
+<div class="stat-row">
+    <div class="stat-title">
+    Average Exam Score:
+    </div>
+
+    <div class="stat-data">
+        <span ng-bind=""></span>
+    </div>
+</div>
+
+
+<div class="stat-row">
+    <div class="stat-title">
+    Average Exam Time:
+    </div>
+
+    <div class="stat-data">
+        <span ng-bind=""></span>
+    </div>
+</div>
+
+
+<div class="stat-row">
+    <div class="stat-title">
+    % Pass/Fail:
+    </div>
+
+    <div class="stat-data">
+        <span ng-bind=""></span>
+    </div>
+</div>
+
+</fieldset>
