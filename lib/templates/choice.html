@@ -1,1 +1,61 @@
 <div ng-init="ch.init()"></div>
+
+<div class="leftPaneList">
+	<button class="btn btn-small btn-info" ng-click="ch.addChoice()"
+		 style="margin-top: 5px; margin-left: 3px">New Choice</button>
+	
+	<div style="margin: 5px" ng-show="ch.choicesLoading">
+		<i class="fa fa-refresh fa-spin"></i>
+	</div>	
+	<div ng-repeat="choice in ch.choices" style="margin-top: 5px">
+		<p style="width: 150px">
+			<span class="questionSelect"
+             title="{{choice.translation}}"
+             ng-click="ch.choiceSelect(choice)">{{choice.text}}</span>
+		</p>
+	</div>
+</div>	
+
+<div class="rightPaneEditor" ng-show="ch.choice !== null">
+	<div class="rowContainer">
+		<div class="leftLabel algTop">Choice*</div>
+		<div class="rightContent">
+			<input type="text" ng-model="ch.choice.text" class="form-control" />
+		</div>
+		<div class="tip" title="The Spanish version of the choice"></div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">Translation*</div>
+		<div class="rightContent">
+			<input type="text" ng-model="ch.choice.translation" class="form-control" />
+		</div>
+		<div class="tip" title="The English translation of the choice"></div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">Phase</div>
+		<div class="rightContent">
+			<select ng-model="ch.choice.phase"
+                    ng-options="p.number as p.number for p in ch.phases"
+                    class="form-control">
+            </select>    
+		</div>
+		<div class="tip" title="The exam phase (1,2,3) the choice will appear in"></div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">Active</div>
+		<div class="rightContent">
+			<input type="checkbox" ng-model="ch.choice.active">
+		</div>
+		<div class="tip" title="If the Choice is active it will be presented on new exams"></div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop"></div>
+		<div class="rightContent">
+			<button class="btn btn-sm btn-primary" 
+                ng-click="ch.save()"
+                title="Save Choice">
+                Save
+            </button>    
+		</div>
+	</div>
+</div>    
