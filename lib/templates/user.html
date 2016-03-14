@@ -1,0 +1,71 @@
+<div ng-init="u.init()"></div>
+
+<div class="searchBar form-group">
+        <div style="display: inline-block">
+            <button class="btn btn-small btn-info" 
+            ng-click="u.addUser()"
+            ng-disabled="u.user[0].id === null"
+            style="margin-left: 3px">New User</button>
+         </div>
+             <div style="display: inline-block; margin-left: 15px">
+                 <input type="text" placeholder="search..." 
+                        ng-change="u.userSearch()" ng-model="u.searchText"
+                        class="form-control" style="width: 140px" />
+             </div>    
+         </div>    
+</div>
+<div class="leftPaneList">	
+	<div style="margin: 5px" ng-show="ch.usersLoading">
+		<i class="fa fa-refresh fa-spin"></i>
+	</div>	
+	<div ng-repeat="user in ch.users" style="margin-top: 5px">
+		<p style="width: 150px">
+			<span class="questionSelect"
+             ng-click="ch.userSelect(user)">{{user.first_name}} {{user.last_name}}</span>
+		</p>
+	</div>
+</div>	
+
+<div class="rightPaneEditor" ng-show="u.user !== null">
+	<div class="rowContainer">
+		<div class="leftLabel algTop">First Name*</div>
+		<div class="rightContent">
+			<input type="text" placeholder="First Name" ng-model="u.user.first_name" class="form-control" />
+		</div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">Last Name*</div>
+		<div class="rightContent">
+			<input type="text" placeholder="Last Name" ng-model="u.user.last_name" class="form-control" />
+		</div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">Email*</div>
+		<div class="rightContent">
+			<input type="text" placeholder="Email" ng-model="u.user.email" class="form-control" />
+		</div>
+	</div>
+        <div class="rowContainer">
+		<div class="leftLabel algTop">Active</div>
+		<div class="rightContent">
+			<input type="checkbox" ng-model="u.user.active">
+		</div>
+		<div class="tip" title="If the User is active, they can login into the system.  Otherwise they will not be allowed to log in."></div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop"></div>
+		<div class="rightContent">
+			<button class="btn btn-sm btn-primary" 
+                ng-click="u.save()"
+                title="Save User">
+                Save
+            </button>    
+            <button class="btn btn-sm btn-default" 
+                style="margin-left: 5px"
+                ng-click="u.cancel()"
+                ng-show="u.users[0].id === null">
+                Cancel
+            </button>  
+		</div>
+	</div>
+</div>
