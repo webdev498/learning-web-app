@@ -17,7 +17,8 @@
         <div class="row">
             <div class="col-xs-2">
                 <button class="btn btn-sm btn-primary" 
-                    ng-disabled="l.username === null || l.password === null"
+                    ng-disabled="l.username === null || l.password === null 
+                        || l.password.length < 8"
                     ng-click="l.login()">Submit</button>
             </div>
         </div>

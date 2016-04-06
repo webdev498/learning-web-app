@@ -21,7 +21,7 @@
 	<div ng-repeat="user in ch.users" style="margin-top: 5px">
 		<p style="width: 150px">
 			<span class="questionSelect"
-             ng-click="ch.userSelect(user)">{{user.first_name}} {{user.last_name}}</span>
+             ng-click="ch.userSelect(user)">{{user.firstName}} {{user.lastName}}</span>
 		</p>
 	</div>
 </div>	
@@ -30,13 +30,13 @@
 	<div class="rowContainer">
 		<div class="leftLabel algTop">First Name*</div>
 		<div class="rightContent">
-			<input type="text" placeholder="First Name" ng-model="u.user.first_name" class="form-control" />
+			<input type="text" placeholder="First Name" ng-model="u.user.firstName" class="form-control" />
 		</div>
 	</div>
     <div class="rowContainer">
 		<div class="leftLabel algTop">Last Name*</div>
 		<div class="rightContent">
-			<input type="text" placeholder="Last Name" ng-model="u.user.last_name" class="form-control" />
+			<input type="text" placeholder="Last Name" ng-model="u.user.lastName" class="form-control" />
 		</div>
 	</div>
     <div class="rowContainer">
@@ -45,12 +45,17 @@
 			<input type="text" placeholder="Email" ng-model="u.user.email" class="form-control" />
 		</div>
 	</div>
-        <div class="rowContainer">
-		<div class="leftLabel algTop">Active</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">Password</div>
 		<div class="rightContent">
-			<input type="checkbox" ng-model="u.user.active">
+			<input type="password" class="form-control" ng-model="u.user.password">
 		</div>
-		<div class="tip" title="If the User is active, they can login into the system.  Otherwise they will not be allowed to log in."></div>
+	</div>
+   <div class="rowContainer">
+		<div class="leftLabel algTop">Password Confirmation</div>
+		<div class="rightContent">
+			<input type="password" class="form-control" ng-model="u.user.passwordConfirmation">
+		</div>
 	</div>
     <div class="rowContainer">
 		<div class="leftLabel algTop"></div>
@@ -64,6 +69,12 @@
                 style="margin-left: 5px"
                 ng-click="u.cancel()"
                 ng-show="u.users[0].id === null">
+                Cancel
+            </button>  
+            <button class="btn btn-sm btn-default" 
+                style="margin-left: 5px"
+                ng-click="u.delete()"
+                ng-show="u.user.id !== null">
                 Cancel
             </button>  
 		</div>
