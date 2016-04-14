@@ -19,7 +19,7 @@ CGI Web Application is the User Interface application for Common Gateway Interna
 The CGI web application can be run locally with the provided web server. By default, the server will bind itself to port 4000, however you can override this by setting a CLIENT_PORT environment variable in the shell you run the server from.
 
 **Running the server with the default port:**
-    $ ./server
+    $ API_HOST='http://localhost:3000' ./server
 
 **Running the server with a custom port**
     $ CLIENT_PORT=6767 ./server

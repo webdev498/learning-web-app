@@ -15,13 +15,13 @@
          </div>    
 </div>
 <div class="leftPaneList">	
-	<div style="margin: 5px" ng-show="ch.usersLoading">
+	<div style="margin: 5px" ng-show="u.usersLoading">
 		<i class="fa fa-refresh fa-spin"></i>
 	</div>	
-	<div ng-repeat="user in ch.users" style="margin-top: 5px">
+	<div ng-repeat="user in u.users" style="margin-top: 5px">
 		<p style="width: 150px">
 			<span class="questionSelect"
-             ng-click="ch.userSelect(user)">{{user.firstName}} {{user.lastName}}</span>
+             ng-click="u.userSelect(user)">{{user.firstName}} {{user.lastName}}</span>
 		</p>
 	</div>
 </div>	
@@ -46,6 +46,56 @@
 		</div>
 	</div>
     <div class="rowContainer">
+		<div class="leftLabel algTop">Phone</div>
+		<div class="rightContent">
+			<input type="text" placeholder="Phone" ng-model="u.user.telephones[0].number" class="form-control" />
+		</div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">Address</div>
+		<div class="rightContent">
+			<select class="form-control">
+                <option value="Home">Home</option>
+                <option value="Business">Business</option>
+                <option value="Billing">Billing</option>
+			</select>
+		</div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">Gender</div>
+		<div class="rightContent">
+			<select ng-model="u.user.gender" class="form-control">
+                <option value="f">Female</option>
+                <option value="m">Male</option>
+			</select>
+		</div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">DOB</div>
+		<div class="rightContent">
+			<p class="input-group" style="width: 200px; margin-bottom: 0px">
+          <input type="text" class="form-control" uib-datepicker-popup ng-model="u.user.dateOfBirth" 
+                    is-open="u.dobOpen" 
+                    close-text="Close" />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="u.dobOpen = true;">
+                <i class="glyphicon glyphicon-calendar"></i>
+            </button>
+          </span>
+        </p>
+		</div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">Nationality</div>
+		<div class="rightContent">
+			<select ng-model="u.user.nationalityId" 
+                    ng-options="nat as nat.name for nat in u.nationalities track by nat.id"
+                    class="form-control">
+                <option value=""></option>
+            </select>
+		</div>
+	</div>
+    <div class="rowContainer">
 		<div class="leftLabel algTop">Password</div>
 		<div class="rightContent">
 			<input type="password" class="form-control" ng-model="u.user.password">
@@ -62,20 +112,23 @@
 		<div class="rightContent">
 			<button class="btn btn-sm btn-primary" 
                 ng-click="u.save()"
+                ng-disabled="u.userProcessing"
                 title="Save User">
                 Save
             </button>    
             <button class="btn btn-sm btn-default" 
                 style="margin-left: 5px"
                 ng-click="u.cancel()"
+                ng-disabled="u.userProcessing"
                 ng-show="u.users[0].id === null">
                 Cancel
             </button>  
             <button class="btn btn-sm btn-default" 
                 style="margin-left: 5px"
                 ng-click="u.delete()"
+                ng-disabled="u.userProcessing"
                 ng-show="u.user.id !== null">
-                Cancel
+                Delete
             </button>  
 		</div>
 	</div>
