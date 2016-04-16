@@ -28,7 +28,7 @@
 
 <div class="rightPaneEditor" ng-show="ch.choice !== null">
 	<div class="rowContainer">
-		<div class="leftLabel algTop">Choice*</div>
+		<div class="leftLabel algTop">Term*</div>
 		<div class="rightContent">
 			<input type="text" ng-model="ch.choice.text" class="form-control" />
 		</div>
@@ -40,6 +40,13 @@
 			<input type="text" ng-model="ch.choice.translation" class="form-control" />
 		</div>
 		<div class="tip" title="The English translation of the choice"></div>
+	</div>
+   <div class="rowContainer">
+		<div class="leftLabel algTop">Categories</div>
+		<div class="rightContent">
+			<div ng-repeat="cat in ch.categories" style="margin-bottom: 3px">{{cat.name}}</div>
+		</div>
+		<div class="tip" title="The categories the term belongs to"></div>
 	</div>
     <div class="rowContainer">
 		<div class="leftLabel algTop">Phase</div>
