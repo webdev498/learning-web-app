@@ -95,14 +95,14 @@
             </select>
 		</div>
 	</div>
-    <div class="rowContainer">
-		<div class="leftLabel algTop">Password</div>
+    <div class="rowContainer" ng-show="u.users[0].id === null">
+		<div class="leftLabel algTop">Password*</div>
 		<div class="rightContent">
 			<input type="password" class="form-control" ng-model="u.user.password">
 		</div>
 	</div>
-   <div class="rowContainer">
-		<div class="leftLabel algTop">Password Confirmation</div>
+   <div class="rowContainer" ng-show="u.users[0].id === null">
+		<div class="leftLabel algTop">Password Confirmation*</div>
 		<div class="rightContent">
 			<input type="password" class="form-control" ng-model="u.user.passwordConfirmation">
 		</div>
