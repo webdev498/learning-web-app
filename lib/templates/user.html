@@ -45,14 +45,38 @@
 			<input type="text" placeholder="Email" ng-model="u.user.email" class="form-control" />
 		</div>
 	</div>
-    <div class="rowContainer">
-		<div class="leftLabel algTop">Phone</div>
+	<div class="rowContainer">
+		<div class="leftLabel algTop"></div>
 		<div class="rightContent">
-			<input type="text" placeholder="Phone" ng-model="u.user.telephones[0].number" class="form-control" />
+			-- Phone Number --
 		</div>
 	</div>
     <div class="rowContainer">
-		<div class="leftLabel algTop">Address</div>
+		<div class="leftLabel algTop">Country Code</div>
+		<div class="rightContent">
+			<input type="text" maxlength="3" placeholder="Country Code" class="form-control" ng-model="u.user.telephones[0].countryCode" />
+		</div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">Area Code</div>
+		<div class="rightContent">
+			<input type="text" maxlength="3" placeholder="Area Code" class="form-control" ng-model="u.user.telephones[0].areaCode" />
+		</div>
+	</div>
+	<div class="rowContainer">
+		<div class="leftLabel algTop">Number</div>
+		<div class="rightContent">
+			<input type="text" maxlength="7" placeholder="Number" class="form-control" ng-model="u.user.telephones[0].number" />
+		</div>
+	</div>
+	<div class="rowContainer">
+		<div class="leftLabel algTop"></div>
+		<div class="rightContent">
+			-- Address --
+		</div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">Address Type</div>
 		<div class="rightContent">
 			<select class="form-control">
                 <option value="Home">Home</option>
