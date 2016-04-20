@@ -6,6 +6,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:4000',
+    'babel-polyfill',
     './lib/index'
   ],
   output: {
@@ -27,14 +28,22 @@ module.exports = {
   module: {
     loaders: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
-        loader: 'babel'
-      },
-      {
-        test: /\.jsx$/,
-        loader: 'babel'
-      },
+      loader: "babel-loader",
+
+      // Skip any files outside of your project's `src` directory
+      include: [
+        path.resolve(__dirname, "lib"),
+      ],
+
+      // Only run `.js` and `.jsx` files through Babel
+      test: /\.jsx?$/,
+
+      // Options to configure babel with
+      query: {
+        plugins: ['transform-runtime'],
+        presets: ['es2015', 'stage-0'],
+      }
+    },
       {
          test: /\.less$/,
          loader: ExtractTextPlugin.extract('css?sourceMap!less?sourceMap')

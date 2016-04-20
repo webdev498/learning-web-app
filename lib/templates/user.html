@@ -15,13 +15,13 @@
          </div>    
 </div>
 <div class="leftPaneList">	
-	<div style="margin: 5px" ng-show="ch.usersLoading">
+	<div style="margin: 5px" ng-show="u.usersLoading">
 		<i class="fa fa-refresh fa-spin"></i>
 	</div>	
-	<div ng-repeat="user in ch.users" style="margin-top: 5px">
+	<div ng-repeat="user in u.users" style="margin-top: 5px">
 		<p style="width: 150px">
 			<span class="questionSelect"
-             ng-click="ch.userSelect(user)">{{user.first_name}} {{user.last_name}}</span>
+             ng-click="u.userSelect(user)">{{user.firstName}} {{user.lastName}}</span>
 		</p>
 	</div>
 </div>	
@@ -30,13 +30,13 @@
 	<div class="rowContainer">
 		<div class="leftLabel algTop">First Name*</div>
 		<div class="rightContent">
-			<input type="text" placeholder="First Name" ng-model="u.user.first_name" class="form-control" />
+			<input type="text" placeholder="First Name" ng-model="u.user.firstName" class="form-control" />
 		</div>
 	</div>
     <div class="rowContainer">
 		<div class="leftLabel algTop">Last Name*</div>
 		<div class="rightContent">
-			<input type="text" placeholder="Last Name" ng-model="u.user.last_name" class="form-control" />
+			<input type="text" placeholder="Last Name" ng-model="u.user.lastName" class="form-control" />
 		</div>
 	</div>
     <div class="rowContainer">
@@ -45,26 +45,114 @@
 			<input type="text" placeholder="Email" ng-model="u.user.email" class="form-control" />
 		</div>
 	</div>
-        <div class="rowContainer">
-		<div class="leftLabel algTop">Active</div>
+	<div class="rowContainer">
+		<div class="leftLabel algTop"></div>
 		<div class="rightContent">
-			<input type="checkbox" ng-model="u.user.active">
+			-- Phone Number --
 		</div>
-		<div class="tip" title="If the User is active, they can login into the system.  Otherwise they will not be allowed to log in."></div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">Country Code</div>
+		<div class="rightContent">
+			<input type="text" maxlength="3" placeholder="Country Code" class="form-control" ng-model="u.user.telephones[0].countryCode" />
+		</div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">Area Code</div>
+		<div class="rightContent">
+			<input type="text" maxlength="3" placeholder="Area Code" class="form-control" ng-model="u.user.telephones[0].areaCode" />
+		</div>
+	</div>
+	<div class="rowContainer">
+		<div class="leftLabel algTop">Number</div>
+		<div class="rightContent">
+			<input type="text" maxlength="7" placeholder="Number" class="form-control" ng-model="u.user.telephones[0].number" />
+		</div>
+	</div>
+	<div class="rowContainer">
+		<div class="leftLabel algTop"></div>
+		<div class="rightContent">
+			-- Address --
+		</div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">Address Type</div>
+		<div class="rightContent">
+			<select class="form-control">
+                <option value="Home">Home</option>
+                <option value="Business">Business</option>
+                <option value="Billing">Billing</option>
+			</select>
+		</div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">Gender</div>
+		<div class="rightContent">
+			<select ng-model="u.user.gender" class="form-control">
+                <option value="f">Female</option>
+                <option value="m">Male</option>
+			</select>
+		</div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">DOB</div>
+		<div class="rightContent">
+			<p class="input-group" style="width: 200px; margin-bottom: 0px">
+          <input type="text" class="form-control" uib-datepicker-popup ng-model="u.user.dateOfBirth" 
+                    is-open="u.dobOpen" 
+                    close-text="Close" />
+          <span class="input-group-btn">
+            <button type="button" class="btn btn-default" ng-click="u.dobOpen = true;">
+                <i class="glyphicon glyphicon-calendar"></i>
+            </button>
+          </span>
+        </p>
+		</div>
+	</div>
+    <div class="rowContainer">
+		<div class="leftLabel algTop">Nationality</div>
+		<div class="rightContent">
+			<select ng-model="u.user.nationalityId" 
+                    ng-options="nat as nat.name for nat in u.nationalities track by nat.id"
+                    class="form-control">
+                <option value=""></option>
+            </select>
+		</div>
+	</div>
+    <div class="rowContainer" ng-show="u.users[0].id === null">
+		<div class="leftLabel algTop">Password*</div>
+		<div class="rightContent">
+			<input type="password" class="form-control" ng-model="u.user.password">
+		</div>
+	</div>
+   <div class="rowContainer" ng-show="u.users[0].id === null">
+		<div class="leftLabel algTop">Password Confirmation*</div>
+		<div class="rightContent">
+			<input type="password" class="form-control" ng-model="u.user.passwordConfirmation">
+		</div>
 	</div>
     <div class="rowContainer">
 		<div class="leftLabel algTop"></div>
 		<div class="rightContent">
 			<button class="btn btn-sm btn-primary" 
                 ng-click="u.save()"
+                ng-disabled="u.userProcessing"
                 title="Save User">
                 Save
             </button>    
             <button class="btn btn-sm btn-default" 
                 style="margin-left: 5px"
                 ng-click="u.cancel()"
+                ng-disabled="u.userProcessing"
                 ng-show="u.users[0].id === null">
                 Cancel
+            </button>  
+            <button class="btn btn-sm btn-default" 
+                style="margin-left: 5px"
+                ng-click="u.delete()"
+                ng-disabled="u.userProcessing"
+                ng-show="u.user.id !== null">
+                Delete
             </button>  
 		</div>
 	</div>
