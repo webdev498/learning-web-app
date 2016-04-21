@@ -1,6 +1,7 @@
 # Common Ground International
 # Spanish Healthcare Language Web Application
 
+[ ![Codeship Status for josh_king_/cgi-she-web-app](https://codeship.com/projects/09628140-e99d-0133-671b-02cde9680eda/status?branch=master)](https://codeship.com/projects/147642)
 
 ## Description
 CGI Web Application is the User Interface application for Common Gateway International.
