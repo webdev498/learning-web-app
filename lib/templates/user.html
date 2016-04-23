@@ -63,9 +63,9 @@
 					</div>
 				</div>
 				<div style="display: table-row">
-					<div style="display: table-cell">
+					<div style="display: table-cell; padding-right: 4px">
 						<!-- country codes (ISO 3166) and Dial codes. -->
-						<select ng-model="u.user.telCC">
+						<select ng-model="u.user.telCC" class="form-control">
 						<option data-countryCode="US" value="1">USA (+1)</option>
 						<option data-countryCode="GB" value="44">UK (+44)</option>
 						<optgroup label="Other countries">
@@ -286,8 +286,8 @@
 						</optgroup>
 					</select>
 					</div>
-					<div style="display: table-cell">
-						<input type="text" ng-model="u.user.telNumber" />
+					<div style="display: table-cell; padding-right: 4px">
+						<input type="text" ng-model="u.user.telNumber" class="form-control" />
 					</div>
 					<div style="display: table-cell">
 						<input type="text" ng-model="u.user.telExt" maxlength="5" style="width: 35px" />
