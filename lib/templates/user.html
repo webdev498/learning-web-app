@@ -52,10 +52,10 @@
 		<div class="rightContent">
 			<div style="display: table">
 				<div style="display: table-row">
-					<div style="display: table-cell">
+					<div style="display: table-cell; text-align: center">
 						Country Code
 					</div>
-					<div style="display: table-cell">
+					<div style="display: table-cell; text-align: center">
 						10 digit Number
 					</div>
 					<div style="display: table-cell">
@@ -63,9 +63,10 @@
 					</div>
 				</div>
 				<div style="display: table-row">
-					<div style="display: table-cell; padding-right: 4px">
+					<div style="display: table-cell; padding-right: 4px; vertical-align: top">
 						<!-- country codes (ISO 3166) and Dial codes. -->
 						<select ng-model="u.user.telCC" class="form-control">
+							<option value=""></option>
 						<option data-countryCode="US" value="1">USA (+1)</option>
 						<option data-countryCode="GB" value="44">UK (+44)</option>
 						<optgroup label="Other countries">
@@ -290,7 +291,8 @@
 						<input type="text" ng-model="u.user.telNumber" class="form-control" />
 					</div>
 					<div style="display: table-cell">
-						<input type="text" ng-model="u.user.telExt" maxlength="5" style="width: 35px" />
+						<input type="text" ng-model="u.user.telExt"
+						class="form-control" maxlength="5" style="width: 35px" />
 					</div>
 				</div>
 			</div>
@@ -478,7 +480,7 @@
             </select>
 		</div>
 	</div>
-        <div class="rowContainer">
+    <div class="rowContainer" ng-show="u.users[0].id !== null">
 		<div class="leftLabel algTop">Change Password</div>
 		<div class="rightContent">
 			<input type="checkbox" ng-model="u.user.changePassword" />

@@ -21,6 +21,7 @@ The CGI web application can be run locally with the provided web server. By defa
 
 **Running the server with the default port:**
     $ API_HOST='http://localhost:3000' ./server
+    $ (for server startup:) SECRET={whatever} ./bin/server
 
 **Running the server with a custom port**
     $ CLIENT_PORT=6767 ./server
