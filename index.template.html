@@ -8,12 +8,12 @@
     
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" integrity="sha512-dTfge/zgoMYpP7QbHy4gWMEGsbsdZeCXz7irItjcC3sPUFtf0kuFbDz/ixG7ArTxmDjLXDmezHubeNikyKGVyQ==" crossorigin="anonymous">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css" integrity="sha384-aUGj/X2zp5rLCbBxumKTCw2Z50WgIr1vs/PFN4praOTvYXWlVyh2UtNUU0KAUhAX" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
    
     
   </head>
   <body>
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top" ng-controller="IndexController as i">
   <div class="container-fluid" style="margin-top: 20px">
     <div class="navbar-header">
       <a class="navbar-brand" ui-sref="main">
@@ -29,7 +29,11 @@
       </ul>
       
     <ul class="nav navbar-nav navbar-right">
-      <li><a ui-sref="account"><span class="glyphicon glyphicon-user"></span> {{m.userMessage}}</a></li>
+      <li><a ui-sref="account" ng-show="i.loggedIn()">{{i.userMessage}} <span class="glyphicon glyphicon-user"></span></a></li>
+      <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true" 
+            ng-show="i.loggedIn()"
+            ng-click="i.logout()" title="Logout"></i></a>
+      </li>
     </ul>
      </div>  
     
