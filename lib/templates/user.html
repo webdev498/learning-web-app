@@ -306,16 +306,6 @@
 			-- Address --
 		</div>
 	</div>
-    <div class="rowContainer">
-		<div class="leftLabel algTop">Address Type</div>
-		<div class="rightContent">
-			<select class="form-control">
-                <option value="Home">Home</option>
-                <option value="Business">Business</option>
-                <option value="Billing">Billing</option>
-			</select>
-		</div>
-	</div>
 	<div class="rowContainer">
 		<div class="leftLabel algTop"></div>
 		<div class="rightContent">
@@ -583,7 +573,7 @@
 		<div class="rightContent">
 			<button class="btn btn-sm btn-primary" 
                 ng-click="u.save()"
-                ng-disabled="u.userProcessing"
+                ng-disabled="u.userProcessing || !u.submitEnabled()"
                 title="Save User">
                 Save
             </button>    
