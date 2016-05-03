@@ -23,32 +23,42 @@ module.exports = {
       filename: 'index.html',
       template: 'index.template.html',
       favicon: path.join(__dirname, 'assets', 'images', 'favicon.ico')
+    }),
+    new webpack.optimize.UglifyJsPlugin({
+      compress: {
+        warnings: false
+      },
+      outputs: {
+        comments: false
+      }
     })
   ],
   module: {
     loaders: [
+      { test: /\.html$/, loaders: ["html"] },
       {
-      loader: "babel-loader",
+        loader: "babel-loader",
 
-      // Skip any files outside of your project's `src` directory
-      include: [
-        path.resolve(__dirname, "lib"),
-      ],
+        // Skip any files outside of your project's `src` directory
+        include: [
+          path.resolve(__dirname, "lib"),
+        ],
 
-      // Only run `.js` and `.jsx` files through Babel
-      test: /\.jsx?$/,
+        // Only run `.js` and `.jsx` files through Babel
+        test: /\.jsx?$/,
+        
+        
 
-      // Options to configure babel with
-      query: {
-        plugins: ['transform-runtime'],
-        presets: ['es2015', 'stage-0'],
-      }
-    },
+        // Options to configure babel with
+        query: {
+          plugins: ['transform-runtime'],
+          presets: ['es2015', 'stage-0'],
+        }
+      },
       {
          test: /\.less$/,
          loader: ExtractTextPlugin.extract('css?sourceMap!less?sourceMap')
       },
-      { test: /\.html$/, loader: "html" },
       { test: /\.(png|jpg)$/, loader: 'url-loader?limit=8192'}
     ]
   },
