@@ -4,10 +4,10 @@ var ExtractTextPlugin = require('extract-text-webpack-plugin');
 var HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: [
-        'babel-polyfill',
-        './app'
-  ],
+  entry: {
+        'polyfills' : 'babel-polyfill',
+        'app': './lib/index'
+  },
   output: {
     filename: 'app.js',
     chunkFilename: "[id].js",
