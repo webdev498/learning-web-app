@@ -21,14 +21,6 @@ module.exports = {
       filename: 'index.html',
       template: 'index.template.html',
       favicon: path.join(__dirname, 'assets', 'images', 'favicon.ico')
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      },
-      outputs: {
-        comments: false
-      }
     })
   ],
   module: {
