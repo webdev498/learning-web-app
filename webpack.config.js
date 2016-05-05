@@ -6,7 +6,6 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
   entry: [
     'webpack-dev-server/client?http://localhost:4000',
-    'babel-polyfill',
     './lib/index'
   ],
   output: {
@@ -23,14 +22,6 @@ module.exports = {
       filename: 'index.html',
       template: 'index.template.html',
       favicon: path.join(__dirname, 'assets', 'images', 'favicon.ico')
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      },
-      outputs: {
-        comments: false
-      }
     })
   ],
   module: {
