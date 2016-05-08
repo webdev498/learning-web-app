@@ -18,7 +18,7 @@
 	<div style="margin: 5px" ng-show="u.usersLoading">
 		<i class="fa fa-refresh fa-spin"></i>
 	</div>	
-	<div ng-repeat="user in u.users" style="margin-top: 5px">
+	<div ng-repeat="user in u.users track by $index" style="margin-top: 5px">
 		<p style="width: 150px">
 			<span class="questionSelect"
              ng-click="u.userSelect(user)">{{user.firstName}} {{user.lastName}}</span>
