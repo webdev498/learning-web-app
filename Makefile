@@ -6,7 +6,7 @@ install-deps:
 
 build: install-deps clean
 	@echo "Building application artifacts..."
-	@$(BIN)/webpack --progress
+	@$(BIN)/webpack --progress --colors --display-error-details
 	
 buildprod: install-deps clean
 	@echo "Building prod app artificats..."
