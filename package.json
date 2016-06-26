@@ -33,6 +33,7 @@
     "lodash": "^4.8.1",
     "moment": "^2.12",
     "ng-notifications-bar": "^0.0.16",
+    "satellizer": "^0.14.0",
     "url-loader": "^0.5.7",
     "webpack": "^1.12.14"
   },
