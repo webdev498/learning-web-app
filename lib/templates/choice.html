@@ -5,7 +5,7 @@
             <button class="btn btn-small btn-default" 
             ng-click="ch.addChoice()"
             ng-disabled="ch.choices[0].id === null"
-            style="margin-left: 3px"><i class="fa fa-plus-circle"></i> New Choice</button>
+            style="margin-left: 3px"><i class="fa fa-plus-circle"></i> New Term</button>
          </div>
              <div style="display: inline-block; margin-left: 15px">
                  <input type="text" placeholder="search..." 
@@ -14,14 +14,18 @@
              </div>      
 </div>
 <div class="leftPaneList">	
+	<div style="margin: 5px">
+		<input type="radio" name="language" checked="checked" ng-click="ch.language('English')" /> english 
+		<input type="radio" name="language" ng-click="ch.language('Spanish')" /> spanish
+	</div>
 	<div style="margin: 5px" ng-show="ch.choicesLoading">
 		<i class="fa fa-refresh fa-spin"></i>
 	</div>	
 	<div ng-repeat="choice in ch.choices" style="margin-top: 5px">
 		<p style="width: 150px">
 			<span class="questionSelect"
-             title="{{choice.translation}}"
-             ng-click="ch.choiceSelect(choice)">{{choice.text}}</span>
+             title="{{choice.value}}"
+             ng-click="ch.choiceSelect(choice)">{{choice.value}}</span>
 		</p>
 	</div>
 </div>	
@@ -30,9 +34,9 @@
 	<div class="rowContainer">
 		<div class="leftLabel algTop">Term*</div>
 		<div class="rightContent">
-			<input type="text" ng-model="ch.choice.text" style="width: 500px" class="form-control" />
+			<input type="text" ng-model="ch.choice.value" style="width: 500px" class="form-control" />
 		</div>
-		<div class="tip" title="The Spanish version of the choice"></div>
+		<div class="tip" title="The term either spanish or english"></div>
 	</div>
     <div class="rowContainer">
 		<div class="leftLabel algTop">Translation*</div>
