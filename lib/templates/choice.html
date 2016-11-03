@@ -1,12 +1,6 @@
 <div ng-init="ch.init()"></div>
 
 <div class="searchBar form-group">
-        <div style="display: inline-block">
-            <button class="btn btn-small btn-default" 
-            ng-click="ch.addChoice()"
-            ng-disabled="ch.choices[0].id === null"
-            style="margin-left: 3px"><i class="fa fa-plus-circle"></i> New Term</button>
-         </div>
              <div style="display: inline-block; margin-left: 15px">
                  <input type="text" placeholder="search..." 
                         ng-change="ch.textSearch()" ng-model="ch.searchText"
@@ -21,7 +15,7 @@
 	<div style="margin: 5px" ng-show="ch.choicesLoading">
 		<i class="fa fa-refresh fa-spin"></i>
 	</div>	
-	<div ng-repeat="choice in ch.choices" style="margin-top: 5px">
+	<div ng-repeat="choice in ch.choices track by $index" style="margin-top: 5px">
 		<p style="width: 150px">
 			<span class="questionSelect"
              title="{{choice.value}}"
@@ -36,38 +30,12 @@
 		<div class="rightContent">
 			<input type="text" ng-model="ch.choice.value" style="width: 500px" class="form-control" />
 		</div>
-		<div class="tip" title="The term either spanish or english"></div>
 	</div>
     <div class="rowContainer">
 		<div class="leftLabel algTop">Translation*</div>
 		<div class="rightContent">
-			<input type="text" ng-model="ch.choice.translation" style="width: 500px" class="form-control" />
+			<span>{{ch.translation.value}}</span>
 		</div>
-		<div class="tip" title="The English translation of the choice"></div>
-	</div>
-   <div class="rowContainer">
-		<div class="leftLabel algTop">Categories</div>
-		<div class="rightContent">
-			<div ng-repeat="cat in ch.categories" style="margin-bottom: 3px">{{cat.name}}</div>
-		</div>
-		<div class="tip" title="The categories the term belongs to"></div>
-	</div>
-    <div class="rowContainer">
-		<div class="leftLabel algTop">Phase</div>
-		<div class="rightContent">
-			<select ng-model="ch.choice.phase"
-                    ng-options="p.number as p.number for p in ch.phases"
-                    class="form-control">
-            </select>    
-		</div>
-		<div class="tip" title="The exam phase (1,2,3) the choice will appear in"></div>
-	</div>
-    <div class="rowContainer">
-		<div class="leftLabel algTop">Active</div>
-		<div class="rightContent">
-			<input type="checkbox" ng-model="ch.choice.active">
-		</div>
-		<div class="tip" title="If the Choice is active it will be presented on new exams"></div>
 	</div>
     <div class="rowContainer">
 		<div class="leftLabel algTop"></div>
