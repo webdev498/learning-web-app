@@ -1,12 +1,6 @@
 <div ng-init="u.init()"></div>
 
 <div class="searchBar form-group">
-        <div style="display: inline-block">
-            <button class="btn btn-small btn-default" 
-            ng-click="u.addUser()"
-            ng-disabled="u.user[0].id === null"
-            style="margin-left: 3px"><i class="fa fa-plus-circle"></i> New User</button>
-         </div>
              <div style="display: inline-block; margin-left: 15px">
                  <input type="text" placeholder="search..." 
                         ng-change="u.userSearch()" ng-model="u.searchText"
@@ -548,49 +542,6 @@
                     class="form-control">
                 <option value=""></option>
             </select>
-		</div>
-	</div>
-    <div class="rowContainer" ng-show="u.users[0].id !== null">
-		<div class="leftLabel algTop">Change Password</div>
-		<div class="rightContent">
-			<input type="checkbox" ng-model="u.user.changePassword" />
-		</div>
-	</div>
-	<div class="rowContainer" ng-show="u.users[0].id === null || u.user.changePassword">
-		<div class="leftLabel algTop">Password*</div>
-		<div class="rightContent">
-			<input type="password" class="form-control" ng-model="u.user.password">
-		</div>
-	</div>
-   <div class="rowContainer" ng-show="u.users[0].id === null || u.user.changePassword">
-		<div class="leftLabel algTop">Password Confirmation*</div>
-		<div class="rightContent">
-			<input type="password" class="form-control" ng-model="u.user.passwordConfirmation">
-		</div>
-	</div>
-    <div class="rowContainer">
-		<div class="leftLabel algTop"></div>
-		<div class="rightContent">
-			<button class="btn btn-sm btn-primary" 
-                ng-click="u.save()"
-                ng-disabled="u.userProcessing || !u.submitEnabled()"
-                title="Save User">
-                Save
-            </button>    
-            <button class="btn btn-sm btn-default" 
-                style="margin-left: 5px"
-                ng-click="u.cancel()"
-                ng-disabled="u.userProcessing"
-                ng-show="u.users[0].id === null">
-                Cancel
-            </button>  
-            <button class="btn btn-sm btn-default" 
-                style="margin-left: 5px"
-                ng-click="u.delete()"
-                ng-disabled="u.userProcessing"
-                ng-show="u.user.id !== null">
-                Delete
-            </button>  
 		</div>
 	</div>
 </div>
