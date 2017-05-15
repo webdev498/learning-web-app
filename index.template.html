@@ -26,13 +26,16 @@
         <li><a ui-sref="category">Categories</a></li>
         <li><a ui-sref="user">Users</a></li>
         <li><a ui-sref="exam">Exams</a></li>
+        <li><a ui-sref="studyusers">Study Users</a></li>
       </ul>
       
     <ul class="nav navbar-nav navbar-right">
-      <li><a ui-sref="account" ng-show="i.loggedIn()">{{i.userMessage()}} &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span></a></li>
-      <li><a href="#"><i class="fa fa-sign-out" aria-hidden="true" 
+      <li>
+        <div ng-show="i.loggedIn()" style="margin-right: 10px">{{i.userMessage()}} &nbsp;&nbsp;&nbsp;&nbsp;<span class="glyphicon glyphicon-user"></span>
+        <a href="#"><i class="fa fa-sign-out" aria-hidden="true" 
             ng-show="i.loggedIn()"
             ng-click="i.logout()" title="Logout"></i></a>
+        </div>
       </li>
     </ul>
      </div>  
